@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+         if (nums.empty()) return 0;
+        
+        int uniqueIndex = 0; // Points to the last unique element
+        
+        for (int i = 1; i < nums.size(); i++) {
+            // If we find a new unique number
+            if (nums[i] != nums[uniqueIndex]) {
+                uniqueIndex++; // Move the unique pointer forward
+                nums[uniqueIndex] = nums[i]; // Place the new unique number
+            }
+        }
+        
+        // The number of unique elements is uniqueIndex + 1
+        return uniqueIndex + 1;
+    }
+    
+};
